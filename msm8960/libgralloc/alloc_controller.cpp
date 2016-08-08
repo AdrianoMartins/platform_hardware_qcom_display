@@ -45,8 +45,6 @@
 #define VENUS_BUFFER_SIZE(args...) 0
 #endif
 
-#define EXTRADATA_SIZE 8 * 1024
-
 using namespace gralloc;
 using namespace qdutils;
 
@@ -289,7 +287,6 @@ size_t getBufferSizeAndDimensions(int width, int height, int format,
             alignedw = ALIGN(alignedw, 128);
             size  = ALIGN( alignedw * alignedh, 8192);
             size += ALIGN( alignedw * ALIGN(height/2, 32), 8192);
-            size += EXTRADATA_SIZE;
             break;
         case HAL_PIXEL_FORMAT_NV12:
             alignedw = ALIGN(width, 16);
